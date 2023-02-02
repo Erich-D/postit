@@ -20,6 +20,16 @@ test("ADD Post", ()=>{
     expect(nextState.notes.length).toBe(3);
 })
 
+test("ADD Small Post", ()=>{
+    const postState: PostitState = {
+        note: "so",
+        notes: ["goodbye", "too bad"]
+    }
+
+    const nextState = PostitReducer(postState, {type:"ADD_NOTE"});
+    expect(nextState.notes.length).toBe(2);
+})
+
 test("DELETE Posts", ()=>{
     const postState: PostitState = {
         note: "hello",

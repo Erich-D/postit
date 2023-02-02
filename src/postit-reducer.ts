@@ -16,6 +16,7 @@ export function PostitReducer(state: PostitState, action: PostitActions): Postit
 
     switch(action.type){
         case "ADD_NOTE": {
+            if(newState.note.length < 3){alert("Post must have at least 3 characters"); return newState}
             newState.notes.push(newState.note);
             newState.note = "";
             return newState;
